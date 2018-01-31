@@ -1,0 +1,28 @@
+{
+  "name": "banishbot",
+  "version": "0.0.3",
+  "description": "NodeJS Helper library for BanishBot API ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mbmlabs/banishbot-node.git"
+  },
+  "keywords": [
+    "BanishBot",
+    "rest",
+    "api"
+  ],
+  "author": "MbMLabs - help@banishbot.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mbmlabs/banishbot-node/issues"
+  },
+  "homepage": "https://github.com/mbmlabs/banishbot-node#readme",
+  "dependencies": {
+    "q": "^1.5.1",
+    "request": "^2.83.0"
+  }
+}
