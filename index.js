@@ -29,7 +29,8 @@ module.exports = {
 
     function httpCallback(error, response, body) {
       if (!error && response.statusCode == 200) {
-        deferred.resolve(body);
+        var body = JSON.parse(body)
+        deferred.resolve(body.body);
       } else {
         deferred.reject(error);
       }
@@ -64,6 +65,7 @@ module.exports = {
 
     function httpCallback(error, response, body) {
       if (!error && response.statusCode == 200) {
+        var body = JSON.parse(body)
         deferred.resolve(body);
       } else {
         deferred.reject(error);
@@ -98,6 +100,7 @@ module.exports = {
 
     function httpCallback(error, response, body) {
       if (!error && response.statusCode == 200) {
+        var body = JSON.parse(body)
         deferred.resolve(body);
       } else {
         deferred.reject(error);
@@ -126,6 +129,7 @@ module.exports = {
 
     function httpCallback(error, response, body) {
       if (!error && response.statusCode == 200) {
+        var body = JSON.parse(body)
         deferred.resolve(body);
       } else {
         deferred.reject(error);
