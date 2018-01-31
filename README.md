@@ -19,10 +19,7 @@ Notes:
 
 #### npm
 
-To publish the library as a [npm](https://www.npmjs.com/),
-please follow the procedure in ["Publishing npm packages"](https://docs.npmjs.com/getting-started/publishing-npm-packages).
-
-Then install it via:
+To install via npm:
 
 ```shell
 npm install banishbot --save
@@ -30,9 +27,9 @@ npm install banishbot --save
 
 #### git
 #
-If the library is hosted at a git repository, e.g.
+The library is hosted at:
 https://github.com/mbmlabs/banishbot
-then install it via:
+you can install it via:
 
 ```shell
     npm install mbmlabs/banishbot --save
