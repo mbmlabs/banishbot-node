@@ -12,6 +12,11 @@ Notes:
 - API version: 0.0.1
 - Package version: 0.0.3
 
+## PII Data
+
+You can submit PII data by passing the pii == true flag as part of the request.
+
+
 
 ## Installation
 
@@ -55,6 +60,7 @@ Then include *bundle.js* in the HTML pages.
 var banishbot = require('banishbot');
 var username = 'TheDoctor'; // Required
 var apiKey = 'abc-123-Th1s-Is-My-K3y'; // Required
+var pii = true; // Optional
 
 ```
 
@@ -64,7 +70,7 @@ Check if an item has been banished:
 
 ```javascript
 
-banishbot.checkBanishment(username, apiKey, 'dalek@skaro.planet').then(function(result) {
+banishbot.checkBanishment(username, apiKey, 'dalek@skaro.planet', pii).then(function(result) {
   // Success Result
   console.log(result);
   // {"Banished":false,"BanishedItem":"dalek@skaro.planet"}
@@ -79,13 +85,13 @@ banishbot.checkBanishment(username, apiKey, 'dalek@skaro.planet').then(function(
 Banish a new item:
 
 ```javascript
-
+var pii = true; // Optional
 banishPayload = {
   banished: true // Required
   type: 'email' // This is optional
   notes: 'These are my optional notes' // This is optional
 };
-banishbot.banishNewItem(username, apiKey, 'dalek@skaro.planet', banishPayload).then(function(result) {
+banishbot.banishNewItem(username, apiKey, 'dalek@skaro.planet', banishPayload, pii).then(function(result) {
   // Success Result
   console.log(result);
   // { success: true, username: 'TheDoctor' }
@@ -101,12 +107,12 @@ banishbot.banishNewItem(username, apiKey, 'dalek@skaro.planet', banishPayload).t
 Update an existing item:
 
 ```javascript
-
+var pii = true; // Optional
 banishPayload = {
   banished: true // Required
   notes: 'These are my optional notes' // This is optional
 };
-banishbot.updateBanishedItem(username, apiKey, 'dalek@skaro.planet', banishPayload).then(function(result) {
+banishbot.updateBanishedItem(username, apiKey, 'dalek@skaro.planet', banishPayload, pii).then(function(result) {
   // Success Result
   console.log(result);
   //{ success: true, username: 'TheDoctor' }
@@ -121,8 +127,9 @@ banishbot.updateBanishedItem(username, apiKey, 'dalek@skaro.planet', banishPaylo
 Delete an item:
 
 ```javascript
+var pii = true; // Optional
 
-banishbot.deleteItemFromBanishBot(username, apiKey, 'dalek@skaro.planet').then(function(result) {
+banishbot.deleteItemFromBanishBot(username, apiKey, 'dalek@skaro.planet', pii).then(function(result) {
   // Success Result
   console.log(result);
   //{"Success":true,"Message":"dalek@skaro.planet has been deleted","Username":"TheDoctor"}
@@ -139,8 +146,8 @@ banishbot.deleteItemFromBanishBot(username, apiKey, 'dalek@skaro.planet').then(f
 Check if an item has been banished:
 
 ```javascript
-
-banishbot.checkBanishment(username, apiKey, 'dalek@skaro.planet', function (error, result) {
+var pii = true; // Optional
+banishbot.checkBanishment(username, apiKey, 'dalek@skaro.planet',pii, function (error, result) {
   console.log(result);
   //{"Banished":false,"BanishedItem":"dalek@skaro.planet"}
 });
@@ -150,13 +157,13 @@ banishbot.checkBanishment(username, apiKey, 'dalek@skaro.planet', function (erro
 Banish a new item:
 
 ```javascript
-
+var pii = true; // Optional
 banishPayload = {
   banished: true // Required
   type: 'email' // This is optional
   notes: 'These are my optional notes' // This is optional
 };
-banishbot.banishNewItem(username, apiKey, 'dalek@skaro.planet', banishPayload, function (error, result) {
+banishbot.banishNewItem(username, apiKey, 'dalek@skaro.planet', banishPayload, pii, function (error, result) {
   console.log(result);
   //{ success: true, username: 'TheDoctor' }
   //{ statusCode: '409', body: { Reason: 'This item is already banished, please check the state of the item in a new request.' } }
@@ -167,12 +174,12 @@ banishbot.banishNewItem(username, apiKey, 'dalek@skaro.planet', banishPayload, f
 Update an existing item:
 
 ```javascript
-
+var pii = true; // Optional
 banishPayload = {
   banished: true // Required
   notes: 'These are my optional notes' // This is optional
 };
-banishbot.updateBanishedItem(username, apiKey, 'dalek@skaro.planet', banishPayload, function (error, result) {
+banishbot.updateBanishedItem(username, apiKey, 'dalek@skaro.planet', banishPayload, pii, function (error, result) {
   console.log(result);
   //{ success: true, username: 'TheDoctor' }
 });
@@ -182,8 +189,8 @@ banishbot.updateBanishedItem(username, apiKey, 'dalek@skaro.planet', banishPaylo
 Delete an item:
 
 ```javascript
-
-banishbot.deleteItemFromBanishBot(username, apiKey, 'dalek@skaro.planet', function (error, result) {
+var pii = true; // Optional
+banishbot.deleteItemFromBanishBot(username, apiKey, 'dalek@skaro.planet', pii, function (error, result) {
   console.log(result);
   //{"Success":true,"Message":"dalek@skaro.planet has been deleted","Username":"TheDoctor"}
 });
