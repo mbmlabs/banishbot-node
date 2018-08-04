@@ -1,6 +1,6 @@
 {
   "name": "banishbot",
-  "version": "0.0.32",
+  "version": "0.0.5",
   "description": "NodeJS Helper library for BanishBot API ",
   "main": "index.js",
   "scripts": {
